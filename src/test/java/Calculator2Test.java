@@ -10,7 +10,7 @@ import org.openqa.selenium.NoSuchElementException;
 
 public class Calculator2Test {
 
-
+    int a;
 
 
 }
