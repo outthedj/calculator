@@ -10,7 +10,89 @@ import org.openqa.selenium.NoSuchElementException;
 
 public class Calculator2Test {
 
-    int a;
+    WebDriver driver;
+
+    @BeforeMethod
+    public void setUp(){
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        driver = new ChromeDriver();
+
+    }
+
+    @Test
+    public void categoryAbese() {
+        //Open page
+        driver.get("https://healthunify.com/bmicalculator/");
+        //Input weight
+        driver.findElement(By.name("wg")).sendKeys("100");
+        //Input height
+        driver.findElement(By.name("ht")).sendKeys("100");
+        //Click "Calculate"
+        driver.findElement(By.cssSelector("[value=Calculate]")).click();
+        //Validate the result
+        String content = driver.findElement(By.className("content")).getAttribute("value");
+        Assert.assertEquals(content, "Your category is Obese", "Wrong message or element was not found");
+    }
+
+    @Test
+    public void categoryStarvation() {
+        //Open page
+        driver.get("https://healthunify.com/bmicalculator/");
+        //Input weight
+        driver.findElement(By.name("wg")).sendKeys("60");
+        //Input height
+        driver.findElement(By.name("ht")).sendKeys("400");
+        //Click "Calculate"
+        driver.findElement(By.cssSelector("[value=Calculate]")).click();
+        //Validate the result
+        String content = driver.findElement(By.className("content")).getAttribute("value");
+        Assert.assertEquals(content, "Your category is Starvation", "Wrong message or element was not found");
+    }
+
+    @Test
+    public void categoryUnderweight() {
+        //Open page
+        driver.get("https://healthunify.com/bmicalculator/");
+        //Input weight
+        driver.findElement(By.name("wg")).sendKeys("11");
+        //Input height
+        driver.findElement(By.name("ht")).sendKeys("100");
+        //Click "Calculate"
+        driver.findElement(By.cssSelector("[value=Calculate]")).click();
+        //Validate the result
+        String content = driver.findElement(By.className("content")).getAttribute("value");
+        Assert.assertEquals(content, "Your category is Underweight", "Wrong message or element was not found");
+    }
+
+    @Test
+    public void categoryNormal() {
+        //Open page
+        driver.get("https://healthunify.com/bmicalculator/");
+        //Input weight
+        driver.findElement(By.name("wg")).sendKeys("50");
+        //Input height
+        driver.findElement(By.name("ht")).sendKeys("150");
+        //Click "Calculate"
+        driver.findElement(By.cssSelector("[value=Calculate]")).click();
+        //Validate the result
+        String content = driver.findElement(By.className("content")).getAttribute("value");
+        Assert.assertEquals(content, "Your category is Normal", "Wrong message or element was not found");
+    }
+
+    @Test
+    public void categoryOverweight() {
+        //Open page
+        driver.get("https://healthunify.com/bmicalculator/");
+        //Input weight
+        driver.findElement(By.name("wg")).sendKeys("80");
+        //Input height
+        driver.findElement(By.name("ht")).sendKeys("170");
+        //Click "Calculate"
+        driver.findElement(By.cssSelector("[value=Calculate]")).click();
+        //Validate the result
+        String content = driver.findElement(By.className("content")).getAttribute("value");
+        Assert.assertEquals(content, "Your category is Overweight", "Wrong message or element was not found");
+    }
 
 
 }
