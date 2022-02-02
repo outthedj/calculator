@@ -17,28 +17,28 @@ public class Page_Tests {
     }
 
     @Test
-    public void isHelloexist() {
+    public void isHelloExistTest() {
         driver.get("file:///C:/Users/igorv/IdeaProjects/calculator2/src/main/resources/index.html");
         String hello = driver.findElement(By.name("header")).getText();
         Assert.assertEquals(hello, "Welcome, Stranger!", "Message was not found");
     }
 
     @Test
-    public void isSpisokexist() {
+    public void isSpisokExistTest() {
         driver.get("file:///C:/Users/igorv/IdeaProjects/calculator2/src/main/resources/index.html");
         boolean isSpisokexist = driver.findElement(By.name("spisok")).isDisplayed();
         Assert.assertTrue(isSpisokexist, "Spisok not found");
     }
 
     @Test
-    public void isNameexist() {
+    public void isNameExistTest() {
         driver.get("file:///C:/Users/igorv/IdeaProjects/calculator2/src/main/resources/index.html");
         boolean isNameexist = driver.findElement(By.name("igor")).getAttribute("name").contains("igor");
         Assert.assertTrue(isNameexist, "Name not found");
     }
 
     @Test
-    public void isUrlexist() {
+    public void isUrlExistTest() {
         driver.get("file:///C:/Users/igorv/IdeaProjects/calculator2/src/main/resources/index.html");
         driver.findElement(By.name("url")).click();
         boolean isUrlexist = driver.getCurrentUrl().contains("google");
@@ -46,14 +46,9 @@ public class Page_Tests {
     }
 
     @Test
-    public void isPictureTextExist() throws InterruptedException {
+    public void isPictureTextExistTest() {
         driver.get("file:///C:/Users/igorv/IdeaProjects/calculator2/src/main/resources/index.html");
         String isPictureTextExist = driver.findElement(By.name("picture")).getAttribute("alt");
-        Thread.sleep(1000);
         Assert.assertEquals(isPictureTextExist, "oops, you found it", "Wrong message or element was not found");
     }
-
-
-
-
 }
