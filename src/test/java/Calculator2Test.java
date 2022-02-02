@@ -93,6 +93,4 @@ public class Calculator2Test {
         String content = driver.findElement(By.className("content")).getAttribute("value");
         Assert.assertEquals(content, "Your category is Overweight", "Wrong message or element was not found");
     }
-
-
 }
