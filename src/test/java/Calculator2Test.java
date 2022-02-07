@@ -13,14 +13,14 @@ public class Calculator2Test {
     WebDriver driver;
 
     @BeforeMethod
-    public void setUp(){
+    public void setUpTest(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
 
     }
 
     @Test
-    public void categoryAbese() {
+    public void categoryAbeseTest() {
         //Open page
         driver.get("https://healthunify.com/bmicalculator/");
         //Input weight
@@ -35,7 +35,7 @@ public class Calculator2Test {
     }
 
     @Test
-    public void categoryStarvation() {
+    public void categoryStarvationTest() {
         //Open page
         driver.get("https://healthunify.com/bmicalculator/");
         //Input weight
@@ -50,7 +50,7 @@ public class Calculator2Test {
     }
 
     @Test
-    public void categoryUnderweight() {
+    public void categoryUnderweightTest() {
         //Open page
         driver.get("https://healthunify.com/bmicalculator/");
         //Input weight
@@ -65,7 +65,7 @@ public class Calculator2Test {
     }
 
     @Test
-    public void categoryNormal() {
+    public void categoryNormalTest() {
         //Open page
         driver.get("https://healthunify.com/bmicalculator/");
         //Input weight
@@ -80,7 +80,7 @@ public class Calculator2Test {
     }
 
     @Test
-    public void categoryOverweight() {
+    public void categoryOverweightTest() {
         //Open page
         driver.get("https://healthunify.com/bmicalculator/");
         //Input weight
@@ -92,5 +92,10 @@ public class Calculator2Test {
         //Validate the result
         String content = driver.findElement(By.className("content")).getAttribute("value");
         Assert.assertEquals(content, "Your category is Overweight", "Wrong message or element was not found");
+    }
+
+    @AfterMethod
+    public void setUpTest2(){
+        driver.quit();
     }
 }
